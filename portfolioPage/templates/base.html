@@ -2,29 +2,89 @@
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="{% static 'portfolio/css/styles.css' %}">
     <title>Portfolio</title>
 </head>
+
 <body>
     <div class='profile'>
-        <h1>Olá, meu nome é Rafael Batista Ferreira!</h1>
-        <h2>Eu sou um desenvolvedor Django Jr.</h2>
-        <img src="{% static '/images/picture.jpg' %}" alt="picture of myself">
+        <div class='title-container'>
+            <h1>Olá, meu nome é Rafael Batista Ferreira!</h1>
+            <h2>Desenvolvedor Django Jr.</h2>
+        </div>
+        <div class='profile-img-container'>
+            <img src="{% static '/images/picture.jpg' %}" alt="picture of myself">
+            <div class='container'>
+                <div class='contact'>
+                    <span><i class="fa-solid fa-phone"></i> (91) 9 99030266</span>
+                    <a href="https://www.linkedin.com/in/rafael-batista-ferreira-10529a234"><i
+                            class="fa-brands fa-linkedin"></i>
+                        linkedin.com/in/rafael-batista-ferreira-10529a234</a>
+                    <span><i class="fa-solid fa-envelope"></i> rafabf18@gmail.com</span>
+                    <a href="https://github.com/RafaelFerreira18"><i class="fa-brands fa-github"></i> github.com/RafaelFerreira18</a>
+                </div>
+                <div class='description'>
+                    <p>Me chamo Rafael Batista Ferreira, tenho 19 anos, e sou um desenvolvedor Django,
+                        eu sempre utilizei Python como linguagem principal de programação e quando descobri o Django eu me
+                        apaixonei mais ainda!</p>
+                </div>
+            </div>
+        </div>
     </div>
 
-    <div class= 'description'> 
-        <p>Me chamo Rafael Batista Ferreira, tenho 19 anos, e sou um desenvolvedor Django, 
-            eu sempre utilizei Python como linguagem principal de programação e quando descobri o Django eu me apaixonei mais ainda!</p>
-    </div>
+    <div class='big-container'>
+        <div class="educational-container">
+            <div class='education'>
+                <h2>Educação:</h2>
+                <h4>Bacharelado em ciência da computação:</h4>
+                <p>Cursando Ciência da Computação, na Universidade Feevale, atualmente no 3º semestre e com
+                    previsão de formação para dezembro/2025</p>
+            </div>
 
-    <div class='education'>
-        <h3>Educação:</h3>
-        <h4>Ciência da computação</h4>
-    </div>
+            <div class='languages'>
+                <h2>Línguas:</h2>
+                <h4>Português: Nativo</h4>
+                <h4>Inglês: Avançado</h4>
+                <p>- Formado em inglês pela escola de inglês Cultura Inglesa</p>
+            </div>
+        </div>
+
+        <div class='form'>
+            <h2>Deseja mandar uma mensagem?</h2>
+            <h4>Preencha os dados para conseguir enviar uma mensagem diretamente!</h4>
+            <form action="" method="POST">
+                {% csrf_token %}
+                <div class="form-container">
+                    {% for field in  form%}
+                    <div class='form-group'>
+                        <label for="{{field.id_for_label}}">{{field.label}}</label>
+                        {{field}}
+                        
+                        {% if field.help.text %}
+                            <p class='help-text'>{{field.help_text}}</p>
+                        {% endif %}
     
+                        {{field.errors}}
+                    </div>
+                    {% endfor %}
+    
+                    <div class="class form-group">
+                        <button type='submit'>Enviar</button>
+                    </div>             
+                </div>
+            </form>
+        </div>
+    </div>
+
+
 </body>
+
 </html>
