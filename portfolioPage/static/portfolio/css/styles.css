@@ -194,8 +194,9 @@ body{
 
 .form-group label
 .form-content .help-text{
-    display: block;
-    margin: 8px 0;
+    display: flex;
+    flex-direction: row;
+    margin: auto;
     font-size: 32px;
     list-style-type: none;
 }

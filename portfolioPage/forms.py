@@ -10,23 +10,23 @@ def add_placeholder(field, placeholder_val):
 class SendMessage(ModelForm):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        add_placeholder(self.fields['nome'], 'Ex: Leonardo')
+        add_placeholder(self.fields['name'], 'Ex: Leonardo')
         add_placeholder(self.fields['email'], 'Ex: oaooaoao@gmail.com')
-        add_placeholder(self.fields['mensagem'], 'Ex.: Que legal seu portfolio!')
+        add_placeholder(self.fields['message'], 'Ex.: Que legal seu portfolio!')
     class Meta:
         model = Message
         fields = [
-            'nome',
+            'name',
             'email',
-            'mensagem',
+            'message',
         ]
 
     labels = help_texts = {
-        'nome': 'O nome não pode estar em branco',
+        'name': 'O nome não pode estar em branco',
         'email': 'O email precisa ser válido'
     }
     error_messages = {
-        'nome': {
+        'name': {
             'required': 'Esse campo não pode ser deixado em branco',
         }
     }

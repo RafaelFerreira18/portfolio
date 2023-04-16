@@ -2,9 +2,9 @@ from django.db import models
 
 
 class Message(models.Model):
-    nome = models.CharField(max_length=65)
+    name = models.CharField(max_length=65)
     email = models.CharField(max_length=128)
-    mensagem = models.CharField(max_length=5000)
+    message = models.CharField(max_length=5000)
 
     def __str__(self):
-        return self.nome
+        return self.name
