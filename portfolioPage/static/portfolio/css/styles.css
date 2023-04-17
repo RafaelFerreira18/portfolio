@@ -190,13 +190,14 @@ body{
     padding: 16px;
     border-radius: 0.4rem;
     border: 1px solid var(--color-primary-dark);
+    margin-top: 10px;
   }
 
 .form-group label
 .form-content .help-text{
     display: flex;
     flex-direction: row;
-    margin: auto;
+    margin-top: 10px;
     font-size: 32px;
     list-style-type: none;
 }
