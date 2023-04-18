@@ -30,6 +30,9 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
+if not DEBUG:
+    CSRF_TRUSTED_ORIGINS = ['https://portfolio-production-37fb.up.railway.app/']
+
 
 # Application definition
 
@@ -127,3 +130,5 @@ STATIC_FILES_DIRS = (os.path.join(BASE_DIR, 'static'))
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
