@@ -30,8 +30,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
-if not DEBUG:
-    CSRF_TRUSTED_ORIGINS = ['https://portfolio-production-37fb.up.railway.app/']
+CSRF_TRUSTED_ORIGINS = ['https://portfolio-production-37fb.up.railway.app/']
 
 
 # Application definition
